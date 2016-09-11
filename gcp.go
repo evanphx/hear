@@ -23,7 +23,7 @@ func NewGCPSpeechConv(accountFile string) (*GCPSpeechConv, error) {
 	conn, err := transport.DialGRPC(ctx,
 		option.WithEndpoint("speech.googleapis.com:443"),
 		option.WithScopes("https://www.googleapis.com/auth/cloud-platform"),
-		option.WithServiceAccountFile("/Users/evan/.gcloud/home.json"),
+		option.WithServiceAccountFile(accountFile),
 	)
 
 	if err != nil {
