@@ -51,6 +51,10 @@ func (gcp *GCPSpeechConv) Convert(data []byte) (string, error) {
 		}
 	}
 
+	if best == nil {
+		return "", nil
+	}
+
 	return best.Transcript, nil
 }
 

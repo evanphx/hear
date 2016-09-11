@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"log"
+	"os"
 	"time"
 
 	"github.com/evanphx/hear"
@@ -24,7 +25,9 @@ func main() {
 		log.Fatal(err)
 	}
 
-	gcp, err := hear.NewGCPSpeechConv("/Users/evan/.gcloud/hear.json")
+	fmt.Printf("recognizing...\n")
+
+	gcp, err := hear.NewGCPSpeechConv(os.Getenv("GOOGLE_APPLICATION_CREDENTIALS"))
 	if err != nil {
 		log.Fatal(err)
 	}
